@@ -320,3 +320,235 @@ type error interface{
 }
 ```
 Error is either `nil` or `!nil`. If it is `nil`, it means that everything is fine else if error is `!nil` something went wrong.
+
+ASCII to Interger conversion
+```go
+// Atoi converts  a stringfied number to integer 
+i, err := strconv.Atoi("42b")
+if err != nil {
+    fmt.Println("couldn't convert", err)
+    // because 42b is not a valid integer, we print:
+    // couldnt convert: strconv.Atoi: Parsing "42b" invalid syntax error
+    return
+}
+```
+- an `errr` in a `nullable` string representing what went wrong or nothing.
+  
+#### Custom Error Interface 
+- error interface has only one single method that needs to ne defined returning a string `Error`.
+
+```go
+type userError struct {
+    name string
+}
+
+func (e userError) Error() string {
+    return fmt.Sprintf("%v has a problem with their account: %v", e.name)
+}
+```
+#### The Errors Package
+Go std library provides an `errors` package `errors.New()` for dealing with errors.
+`var err error = errors.New("something went wrong")`
+
+
+
+## Loops 
+Loops in `go` can omit sections fo the loop. eg. the `CONDITION` (middle part) can be omitted qhich causes the loop to run forever.
+```go
+for INTIAL; ; AFTER;{
+    // do something
+}
+```
+
+##### While loop
+- there is no `while loop` in go. A while loop is similar to a _for_ loop only that is does not have the **intial** and **after** statement. It just runs until some condition is nolonger true.
+- Go allows omission of sections of a for loop.
+- A while lloop is just  a for loop with only one condition.
+```go 
+for CONDITIONS {
+    // DO SOMETHING WHILE CONDITION IS TRUE
+}
+```
+__eg__
+```go
+plantHegight := 1
+for plantHegight < 5{
+    fmt.Println("still growing; current height: " + plantHegight)
+    plantHegight++
+}
+fmt.Println("plant has grown to ",  plantHegight, " inches")
+```
+
+### Logical Operators
+#### AND
+`true &&  false` `// false`
+`true && true` `// true`
+
+#### OR
+`true || false` `// true`
+`false || false` `//false`
+
+#### Continue
+The `continue` keyword stops the current iteration of a loop and continues the next iteration.
+Its a powerful way to use the `guard clause` pattern within loops.
+It helps bail out early.
+
+```go
+for i := 0; i < 10; i++ {
+    if i == 0 {
+        continue
+    }
+    fmt.Println(i)
+}
+```
+
+#### Break
+The `break` keyword stops the current iteration of a loop and exits.
+```go
+for i := 0; i < 10; i++ {
+    if i == 5{
+        break
+    }
+    fmt.Println(i)
+}
+```
+
+### Arrays
+I go `arrays` have a fixed sze.
+The type `[n]T` is an array of n valuesof type `T`.
+
+`var myInts [10] int`
+
+use intialixe literals if you know what goes where in an array.
+`primes := [6] int{1, 2, 3, 4, 5, 6}`
+
+### Slices
+A `slice` is a dynamically sized flexible view into an array. They wrap arrays.
+create a slice from an array
+
+`myArray := [6] int{1,2,3,4,5,6}`
+
+create a slice from an array from index 1 to index 4
+
+`mySlice := myArray[1:5]`
+
+slices are built ontop of array for memory management reasons.
+slices hold references to underlying array, and if you assign one slice to another both refer to same array.
+slices are stored in contigous memory
+
+#### Syntax
+``func make([]T, len, cap) []T`
+`mySlice := make([]int, 5, 10)`
+capacity argument can be omited and slice defaults to the length of the underlying array.
+`s=make([]int,10)` // initalizes 0 values 
+Slices have built-in functions `len` and `cap` tht gets the length of the slice and the capacity of the slice respectively.
+
+##### Panic
+**panicking** means that `runtime` ERROR that is unrecoverable.
+
+#### Variadic
+a variadic function receives a variadic argument as a slice.
+function in the standard library can take arbitrary nmber of final arguments. this is accomplished using the `"..."` syntax in the function signature.
+```go
+func sum(nums ...int) int {
+    // nums is a slice 
+    for i := 0; i < len(nums); i++ {
+        nums[i] = num
+    }
+}
+
+func main() {
+    total := sum(1,2,3,4)
+    fmt.Println(total) //10
+}
+```
+
+#### Spread Operator
+allows us to pass a slice into a `variadic` function. It consists of 3 dots following the sluce in the function call.
+```go
+func printStrings(strings ...string) {
+    for i := 0; i < len(strings); i++ {
+        fmt.Println(strings[i])
+    }
+}
+
+func main() {
+    names := [] string{"bob", "nic", "joy"}
+    printStrings(names...)
+}
+```
+
+#### Slice Append
+built in function is a variadic function.
+syntax is
+`func append(slice []Type, elems, ...Type) [] Type`
+`mySLice = append(mySLice, thingOne)`
+`mySLice = append(mySLice, thingOne, thing2)`
+`mySLice = append(mySLice, anotherSlice...)`
+
+`append` changes the underlying array of its parameters and returns a new slice. Using append on anything other than its self is a `BAD` idea.
+
+print slice memory addrss use `&slice[0]`
+
+_dont do on append_
+`someslice = append(otherSlice, elelemt)`
+
+
+### RANGE
+`Go` provides syntatic suggar to iterate over elements of a slice.
+```go
+for INDEX, ELEMENT := range SLICE {
+
+}
+```
+```go
+fruits := []string {"apple", "orange", "banana", "mango"}
+for i, fruit := range fruits{
+    fmt.Println(i, fruit)
+}
+```
+
+### MAPS
+`maps` are similar to js objects, python dicts and ruby hashes.
+They're data structures that provide `key-value` mapping.
+The `zero` value of a map is `nil`
+Use the `make` function to create a map.
+
+`ages := make(map[string]int)`
+`ages['John'] = 22`
+```go
+ages = map[string]int{
+    "John": 22,
+    "Mary": 102,
+}
+```
+`len` on maps returns total numbe rof key-value pairs.
+`len(ages)`
+
+maps are more efficient than slices.
+
+#### Map mutations
+1. Insert an element
+`m[key] = elem`
+
+2. Get and element
+`elem = m[key]`
+3. Delete an element
+`delete(m, key)`
+4. Check if a key exists
+`elem, ok := m[key]`
+if key is in m, ok is true else false.
+if `key` is not in the map, then elem is zero value for the maps element type.
+
+#### Key Types
+What makes a type qualify to be used a map key?
+Any type can be used as a value in the map, but keys are more _restrictive_
+__maps keys maybe any type that is comparable__ what is absent from the list is the `slices,maps and funcs` as they cannot be compared using the `==` ops.
+
+#### Nested Maps
+Maps can contain, maps creating nested structures.
+`map[string]map[string]int`
+`map[rune]map[string]int`
+`map[string]map[string]map[string]int`
+
+in go we rep individual characters as `runes` instead of strings.
