@@ -695,4 +695,55 @@ require github.com/botdotdev/examplepackage v1.3.0
 
 - an `import path` is a module path + package subdirectory.
 
+#### Initialize a go module
+`go mod init github.com/nicholas-karimi/hellogo`
+where `github.com/nicholas-karimi/ is the remote repository for the package and hellogo is the folder where the package is located.
+
+### Run GO
+`go help run`
+to 
+
+1. `go run pacjage.go` 
+used to quickly compile and run the Go package.
+the compliled binary is not saved in your working directory
+
+2. `go build`
+used to compile production executables.
+
+#### Build an executable
+`go build`
+
+run the new program
+`./buildname`
+
+Compile and run
+`go build && ./buildname`
+
+
+3. `go install`
+compiles and installs the program locally.
+
+
+running `go build` on a non-main package  does not output an `executable` program but _a compiled package silently saved to the local build cache_
+
+go dependency management is heavily based on git and remote url.
+
+4. `go get`
+downloads and installs the remote package.
+`go get github.com/nicholas-karimi/go-tinytime`
+
+### Clean Packages
+
+#### Rule of thumb
+
+1. Hide Internal logics
+ref pillars of OOP - encapsulation.
+
+2. Do not Change APIs
+
+3. Do not export functions from the main package
+A `main` package isnt a library, theres no need to export functions from it.
+
+4. Packages shouldnt know about the dependencies
+
 
