@@ -552,3 +552,112 @@ Maps can contain, maps creating nested structures.
 `map[string]map[string]map[string]int`
 
 in go we rep individual characters as `runes` instead of strings.
+
+
+## First class and high order functions.
+a `high-order` function allows us to pass around funcs as other values.
+a function that accepts another func or returns another dunc as a values is a `first-class` function.
+
+`firstclass` is a function that can be trated like any other value. A function type is dependent on the types of the parameters and return values.
+eg `func() int`| `func(string) int`
+
+Use cases
+`HTTP API` handlers
+`Pub/Sub` handlers
+`Onclick` callback handlers
+
+*High order functions* is a function that takes a function as an argument or returns a function as a return value.
+
+#### Function Currying
+practice of writing functions that takes a function as input and returns a new function
+best usecase for `middleware functions`
+
+#### Defer Keyword
+a unique feature in Go. It allows a function to be executed automatically just before its closing function returns.
+the defer call argument are evaluated immediately, but the function call is not executed until the sorrounding function returns.
+
+
+### Closures
+A closure is a function that references a variable fro outside its own function body.
+
+in the example below the `concatter` function  returns a function that has references to enclosed `doc` value. Each successive call to `harryPotterAggregator` mutates the same `doc` variable.
+
+```go
+func concatter() func (string) string{
+    doc := ""
+    retrun func(word string) string {
+        doc += word + ""
+        return doc
+    }
+}
+
+fun main( ){
+    harryPotterAggregator := concatter()
+    harryPotterAggregator("Mr.")
+    harryPotterAggregator("and")
+    harryPotterAggregator("Mrs.")
+    harryPotterAggregator("Dursley")
+    harryPotterAggregator("of")
+    harryPotterAggregator("number")
+    harryPotterAggregator("four,")
+    harryPotterAggregator("Privet")
+
+    
+    fmt.Println(harryPotterAggregator("Drive"))
+
+
+}
+
+```
+
+### POINTERS
+`pointers` are all about how we store memory in our computers.
+reference  a pointer value using `&variable`. 
+`eg. x := 5 to create a z reference z address ``z := &x`.
+update value of `x` without having to access original value use the _de-reference ops_ `*z=6`
+
+a variable is a named location in memory that stores a value.
+
+#### A pointer is a Variable
+a pointer is a variable that stores the memory address of another variable. that is, a pointer `points to` the location of where data is stored NOT the actual data itself.
+
+_syntax_
+`var p *int`
+
+The `&` operator generates  a pointer to its operand.
+ `mySTring := "hello"`
+ `mySTringPtr = &mySTring`
+
+ Pointers allow us to manipulate data in memory directly without making copies or duplicating data.
+
+ The `* dereference` operator to gain access to the value,
+ `fmt.Println(*mySTringPtr)` // read mystring through the pointer
+ `*mySTringPtr = "world"` // write mystring through the pointer
+
+ #### NIL Pointers
+ if a pointer points to nothing (the zero value of the pointer type) then dereferencing it will cause a runtime error (`panic`)
+ crashing the program.
+ When using pointers check if its `nil` before dereferencing.
+
+ #### POINTER Recievers
+ methods with pointer receivers can modify the value to which the receiver points.
+
+ ```go
+ type car struct {
+    color string
+ }
+ func (c *car) setColor(color string){
+    c.color = color
+ }
+
+ func main(){
+    c := car{
+        color: "black",
+
+    }
+
+    c.setColor("blue")
+    fmt.println(c.color) // blue
+ }
+ ```
+ pointer receivers are more common than value receivers.
