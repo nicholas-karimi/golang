@@ -661,3 +661,38 @@ The `&` operator generates  a pointer to its operand.
  }
  ```
  pointer receivers are more common than value receivers.
+
+
+ ## Local Development
+ ### PACKAGES
+ every go program is made of packages.
+ a package named "main" has the entey point at the `main()` function and is compiled into an executable program.
+ a package with any other name other than "main" is a `library package` and have no entry point.
+
+
+#### Naming Conventions
+a package name is the same sa the last element of its import path. eg. the `math/rand` package comprises files that begin with `package rand`.
+ packages live at the directory level.
+
+ ### MODULES
+ go programs are organized into packages. A package is a directory of Go code that's all compiled together.
+ A `module` is a releasele collection of `go` packages.
+ _a go repository contains only one module, located at the root of the repository_
+ a file named `go.mod` at the root of the project declares a module. It contains:
+ 1. the module path
+ 2. the version of go language the project requires
+ 3. optional external dependencies the project has.
+
+the go.mod
+```go
+module github.com/botdotdev/exampleproject
+go 1.21
+require github.com/botdotdev/examplepackage v1.3.0
+```
+
+>In go ecosystem, there's no central location for 3rd party packages like `npmjs.com` in javascript. Instead the Go toolchain works on top of git and uses the import path as rhe remote url where go can download code.
+>modeule github.com/ or gitlab.com
+
+- an `import path` is a module path + package subdirectory.
+
+
