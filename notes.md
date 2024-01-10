@@ -747,3 +747,191 @@ A `main` package isnt a library, theres no need to export functions from it.
 4. Packages shouldnt know about the dependencies
 
 
+## Chap 13: CHANNELS AND CONCURRENCY
+
+#### CONCURRENCY
+CONCURRENCY is the ability to perform multiple tasks at the same time.
+Typically, code is executed one line at a time, one after another. This is known as `sequential or synchronous` execution.
+
+Syntax
+We use the `go` keyword when calling a function.
+`go doSomething()`
+the go keyword will spwawn a new `goroutine`.
+when used, we're unable to capture the return value of the function.
+
+#### CHANNELS
+Channels are typed, thread safe. It allows different go routines to communicate.
+> since go routines does not support returning values, channels are used to re-synchronize the code.
+>
+SYntax
+`ch := make(chan int)`
+
+##### Send Data to a channel
+`ch <- 69`
+The `<-` is called the `channel operator`. Data flows in the direction of the arrow. This operator will block until another go routine is ready to receive a value.
+
+##### Receive Data from a channel
+`v := <-ch`
+this reads and removes a value from the channel and saves it in the variable v.
+
+Empty structs are ofted used as `token` in Go programs. A token is a `unary` value i.e we dont care what is passed through the channel. We care when and if it was passed.
+
+We can block and wait unitl something is sent on the channel using the syntax of `<-ch`. This will block until it pops a single item off the channel, then continue to discard it.
+
+#### BUFFERRED CHANNELS
+Channels can be optionally buffered.
+buffered channels helps stored information in them.
+A buffer of a length that allows senders to send things to it until its if full. When the receiver is available to pop them, it will read the 1 by 1 and pop them.
+`ch := make(chan int, 100)`
+sending on a buffered channle only blocks until the buffer is full.
+receiving blocks only when the buffer is empty
+
+#### CLOSING CHANNELS IN GO
+We close the channel to indicate that were done with the channel.
+A channel should only be closed from the `sending` side.
+
+SYntax:
+`ch := make(chan int) //do something close(ch)`
+
+#### Check if channel is closed
+use the `ok` value similar to accessing `maps`. receivers can check the ok value when receiving from a channel to test if the channel is closed
+`v, ok := <-ch`
+ok is false if the channel is closed.
+if channel is buffered, ok is true until the channel buffer is drained.
+
+#### Dont send on a closed channel
+sending on a closed channel will cause panic. A panic on main goroutine will cause entire program crash.
+
+#### Range keyword in Channel
+channels similar to maps and slices, can be ranged.
+```go
+for item := ch {
+    // item is the next value received from the channel
+}
+```
+
+#### CHANNEL SELECT
+A `select` statement is used to listen to multiple channels at the same time. its similar to `switch` but for channels.
+```go
+select {
+    case i, ok := <- chInts:
+    fmt.Println(i)
+    case s, ok := <- chStrings:
+    fmt.Println(s)
+
+    default:
+     // receiving from channel will block
+}
+```
+
+#### STd lib channels
+1. `time.Tick()` -a std libe that returns a channel that sends a value on a given interval.
+2. `time.After()` - sends a value once after duration has passed
+3. `time.Sleep()` - blocks the current  go routine for a given duration
+
+#### Read Only Channels
+
+```go
+func main() {
+    ch := make(chan int)
+    readCh(ch)
+}
+
+func readCh(ch <-chan int) {
+    // ch can only be read in this function
+}
+```
+
+#### Write Only Channels
+Same for the writers
+- writes int the channel.
+```go
+func writeCh(ch <- chan int){
+    // ch can only be written in this channel.
+}
+```
+
+## Chap 14: MUTEXES
+**Mutexes** allow users to lock access to data. This ensures that we can control which goroutines can access certain data at what time.
+Go std lib provides built-in mutex implementations using `sync.Mutex` type. 
+Mutex methods are:
+1. `.Lock()`
+2. `.Unlock()`
+
+```go
+protected(){
+    mux.Lock();
+    defer mux.Unlock();
+    // the rest of the function is protected
+    // any other call to mux.Lock() will blocked
+}
+```
+Mutex == mutal exclusion
+
+#### MAPS ARE NOT THREAD SAFE
+maps are not safe for concurrent use. If you have multiple go routines accessing the same map, and atleast one of them is writing the map, you must lock the map in mutex.
+
+> Race condition - when to diff goroutines racing to get access to specific resource.
+> mutal exclusion - because a mutex excludes different threads(or go routines) from accessing the same data same time.
+
+### RW MUTEX
+read/write mutex
+has additional methods to sync.RWMutex()
+1. Lock()
+2. Unlock()
+
+the sync.RWMutex() has
+1. RLock()
+2. RUnlock()
+
+## Chap 15: GENERICS IN GO
+generics allow is to use variables to refer to specific types.
+
+```go
+func splitAnySlice[T any] (s []T)([]T, []T){
+    mid := len(s)/2
+    return s[:mid] + s[mid:]
+}
+
+fistInts, secondInts := splitAnySlice([]int{1, 2, 3})
+fmt.Printfln(fistInts, secondInt)
+```
+generics help us to achieve the `DRY` principle.
+
+Why Generics
+1. Generics reduce repititive code.
+2. Used in libraries and packages more often
+
+### CONSTRAINTS
+
+#### INTERFACE TYPE LIST
+a new wat of writing interfaces introudced when generics were released.
+
+###  PARAMETER CONSTRAINTS
+
+
+
+#### NAMING GENERIC TYPES
+capital `T` is commonly used when there is only a single type param for a given function.
+
+## Chap 16: GO Proverbs
+by Robert Pike
+1. Do not communicate by sharing memory, share memory by communicating.
+2. Concurrency is not parrallelism
+3. Channels orchestrates, mutexes serialize
+4. The bigger the interface, the weaker the abstraction
+5. Make the zero useful value
+6. Interface{} says nothing 
+7. Gofmts style is no ones favorite, yet gofmt is everyones favorite.
+8. A little copying is better than alittle dependency
+9. Syscall must always be guarded with build tags
+10. Cgo must always be guarded with build tags
+11. Cygo is not Go
+12. With the unface package theres no gurantee
+13. Clear is better than clever
+14. Reflection is never clear
+15. Errors are values
+16. Dont just check errors, handle them gracefully
+17. Design the architecture, name the components, document the details
+18. Documentation is for users
+19. Dont panic.
