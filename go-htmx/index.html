@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- htmx -->
+    <script src="https://unpkg.com/htmx.org@1.9.9"></script>
+    <title>Film Store</title>
+</head>
+<body>
+   <div class="container">
+    <div class="row mt-4 g-4">
+        <div class="col-8" id="films">
+            <h1 class="mb-4">Films List</h1>
+            <ul class="list-group fs-5 me-5">
+                <!-- {{ range .Films }}
+                    <li class="list-group-item bg-secondary text-white">{{ .Title }} - {{ .Director }} - {{ .Year }}</li>
+                
+                {{ end }} -->
+                <!-- template fragment -->
+                {{ range .Films }}
+                    {{ block "film-list-item" . }}
+                        <li class="list-group-item bg-secondary text-white">{{ .Title }} - {{ .Director }} - {{ .Year }}</li>
+                    {{ end }}
+                {{ end}}
+            </ul>
+        </div>
+        <div class="col-4">
+            <h1 class="mb-4">Add Film</h1>
+            <form method="POST" hx-post="/add-film/" hx-target="#films" 
+                                hx-swap="beforeend" hx-indicator="#spinner" 
+                                hx-on="htmx:afterSwap":this.reset()>
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title</label>
+                    <input type="text" class="form-control" id="title" name="title">
+                </div>
+                <div class="mb-3">
+                    <label for="director" class="form-label">Director</label>
+                    <input type="text" class="form-control" id="director" name="director">
+                </div>
+                <div class="mb-3">
+                    <label for="year" class="form-label">Year</label>
+                    <input type="text" class="form-control" id="year" name="year">
+                </div>
+                <button type="submit" class="btn btn-primary">
+                    <span class="spinner-border spinner-border-sm htmx-indicator" id="spinner" role="status" aria-hidden="true"></span>&nbsp;Submit
+                </button>
+                <a href="/" class="btn btn-danger">Cancel</a>
+                
+            </form>
+        </div>
+    </div>
+
+   </div>
+
+   <!-- scripts -->
+    <script>
+        // reset the form
+        // htmx.on("htmx:afterSwap", (e) => {
+        //     console.log("htmx:afterSwap", e);
+        //     e.target.querySelector("form").reset();
+        // });
+        htmx.on("htmx:afterRequest", (e) => {
+        setTimeout(() => {
+            e.target.querySelector("form").reset();
+        }, 100);
+        });
+    </script>
+</body>
+</html>
