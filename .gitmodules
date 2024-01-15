@@ -1,0 +1,3 @@
+[submodule "gorssagg"]
+	path = gorssagg
+	url = https://github.com/nicholas-karimi/gorssaggregator
