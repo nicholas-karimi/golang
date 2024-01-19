@@ -2,3 +2,12 @@ GET http://localhost:8080/account
 
 ###
 GET http://localhost:8080/account/7382782
+
+###
+POST http://localhost:8080/account
+Content-Type: application/json
+
+{
+    "firstName": "Nicholas",
+    "lastName": "Karimi",
+}
