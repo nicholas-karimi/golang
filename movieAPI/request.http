@@ -1,0 +1,33 @@
+GET http://localhost:8080/movies
+
+###
+GET  http://localhost:8080/movies/2
+
+###
+
+POST http://localhost:8080/movies
+Content-Type: application/json
+
+{
+    "isbn": "536367737",
+    "title": "Into the Bad Lands",
+    "director": {
+        "firstname": "Mike",
+        "lastname": "Ross"
+    }
+}
+
+### 
+PUT http://localhost:8080/movies/787087
+Content-Type: application/json
+{
+    "isbn": "73663772",
+    "title": "Kenya Rising",
+    "director": {
+        "firstname": "Willy",
+        "lastname": "Kenya",
+    }
+}
+
+### 
+DELETE http://localhost:8080/movies/125417
