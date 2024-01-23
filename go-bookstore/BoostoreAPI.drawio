@@ -1,0 +1,194 @@
+<mxfile host="Electron" modified="2024-01-22T17:39:16.501Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.1.21 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="-9byTLR2fDfQbDa0Zo1x" version="22.1.21" type="device">
+  <diagram name="Page-1" id="ariOYCoeakfrVXN86CTn">
+    <mxGraphModel dx="1434" dy="782" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" background="none" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="ZiBS2_UOFTs0pmLssh5Q-1" value="BOOKSTORE MANAGEMENT APIS" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="20" y="68" width="220" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ZiBS2_UOFTs0pmLssh5Q-6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ZiBS2_UOFTs0pmLssh5Q-4" target="ZiBS2_UOFTs0pmLssh5Q-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZiBS2_UOFTs0pmLssh5Q-4" value="CMD" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="270" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ZiBS2_UOFTs0pmLssh5Q-5" value="MAIN.GO" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="410" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ZiBS2_UOFTs0pmLssh5Q-19" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ZiBS2_UOFTs0pmLssh5Q-7" target="ZiBS2_UOFTs0pmLssh5Q-18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZiBS2_UOFTs0pmLssh5Q-7" value="config" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="270" y="410" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ZiBS2_UOFTs0pmLssh5Q-21" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ZiBS2_UOFTs0pmLssh5Q-8" target="ZiBS2_UOFTs0pmLssh5Q-20">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZiBS2_UOFTs0pmLssh5Q-8" value="controllers" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="430" y="410" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ZiBS2_UOFTs0pmLssh5Q-23" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ZiBS2_UOFTs0pmLssh5Q-9" target="ZiBS2_UOFTs0pmLssh5Q-22">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZiBS2_UOFTs0pmLssh5Q-9" value="models" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="600" y="410" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ZiBS2_UOFTs0pmLssh5Q-27" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ZiBS2_UOFTs0pmLssh5Q-10" target="ZiBS2_UOFTs0pmLssh5Q-26">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZiBS2_UOFTs0pmLssh5Q-10" value="routes" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="760" y="410" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ZiBS2_UOFTs0pmLssh5Q-25" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ZiBS2_UOFTs0pmLssh5Q-11" target="ZiBS2_UOFTs0pmLssh5Q-24">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZiBS2_UOFTs0pmLssh5Q-11" value="utils" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="920" y="410" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ZiBS2_UOFTs0pmLssh5Q-13" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ZiBS2_UOFTs0pmLssh5Q-12" target="ZiBS2_UOFTs0pmLssh5Q-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZiBS2_UOFTs0pmLssh5Q-12" value="PKG" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="400" y="260" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ZiBS2_UOFTs0pmLssh5Q-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ZiBS2_UOFTs0pmLssh5Q-12">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="320" y="390" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ZiBS2_UOFTs0pmLssh5Q-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ZiBS2_UOFTs0pmLssh5Q-12">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="960" y="400" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ZiBS2_UOFTs0pmLssh5Q-16" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="640" y="290" as="sourcePoint" />
+            <mxPoint x="640" y="400" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ZiBS2_UOFTs0pmLssh5Q-17" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="800" y="290" as="sourcePoint" />
+            <mxPoint x="800" y="400" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ZiBS2_UOFTs0pmLssh5Q-18" value="APP.GO" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="270" y="550" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ZiBS2_UOFTs0pmLssh5Q-20" value="BOOK CONTROLLER" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="430" y="550" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ZiBS2_UOFTs0pmLssh5Q-22" value="BOOK.GO" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="600" y="550" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ZiBS2_UOFTs0pmLssh5Q-24" value="UTILS.CO" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="920" y="550" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ZiBS2_UOFTs0pmLssh5Q-26" value="BOOKSTORE ROUTES" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="760" y="550" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ZiBS2_UOFTs0pmLssh5Q-28" value="ROUTES" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="455" y="678" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ZiBS2_UOFTs0pmLssh5Q-29" value="controller func" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="230" y="728" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ZiBS2_UOFTs0pmLssh5Q-30" value="GET BOOKS" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="230" y="780" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ZiBS2_UOFTs0pmLssh5Q-34" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ZiBS2_UOFTs0pmLssh5Q-31" target="ZiBS2_UOFTs0pmLssh5Q-30">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZiBS2_UOFTs0pmLssh5Q-31" value="/book/" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="405" y="780" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ZiBS2_UOFTs0pmLssh5Q-33" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ZiBS2_UOFTs0pmLssh5Q-32" target="ZiBS2_UOFTs0pmLssh5Q-31">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZiBS2_UOFTs0pmLssh5Q-32" value="GET" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="620" y="780" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ZiBS2_UOFTs0pmLssh5Q-35" value="1. Database - Mysql" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="65" y="88" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ZiBS2_UOFTs0pmLssh5Q-36" value="2. GORM" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="65" y="110" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ZiBS2_UOFTs0pmLssh5Q-37" value="3. JSON Marshal/Unmarshall" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="65" y="128" width="180" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ZiBS2_UOFTs0pmLssh5Q-38" value="4. Project Structure" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="65" y="148" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ZiBS2_UOFTs0pmLssh5Q-39" value="5. Goriilla Mux" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="65" y="170" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ZiBS2_UOFTs0pmLssh5Q-70" value="CREATE BOOK" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="230" y="870" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ZiBS2_UOFTs0pmLssh5Q-71" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ZiBS2_UOFTs0pmLssh5Q-72" target="ZiBS2_UOFTs0pmLssh5Q-70">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZiBS2_UOFTs0pmLssh5Q-72" value="/book/" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="405" y="870" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ZiBS2_UOFTs0pmLssh5Q-73" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ZiBS2_UOFTs0pmLssh5Q-74" target="ZiBS2_UOFTs0pmLssh5Q-72">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZiBS2_UOFTs0pmLssh5Q-74" value="POST" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="620" y="870" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ZiBS2_UOFTs0pmLssh5Q-75" value="GET BOOK BY ID" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="230" y="980" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ZiBS2_UOFTs0pmLssh5Q-89" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ZiBS2_UOFTs0pmLssh5Q-76" target="ZiBS2_UOFTs0pmLssh5Q-75">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZiBS2_UOFTs0pmLssh5Q-76" value="/book/{bookId}/" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="405" y="980" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ZiBS2_UOFTs0pmLssh5Q-88" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ZiBS2_UOFTs0pmLssh5Q-77" target="ZiBS2_UOFTs0pmLssh5Q-76">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZiBS2_UOFTs0pmLssh5Q-77" value="GET" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="620" y="980" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ZiBS2_UOFTs0pmLssh5Q-78" value="UPDATE BOOK" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="230" y="1080" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ZiBS2_UOFTs0pmLssh5Q-87" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ZiBS2_UOFTs0pmLssh5Q-79" target="ZiBS2_UOFTs0pmLssh5Q-78">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZiBS2_UOFTs0pmLssh5Q-79" value="/book/{bookId}/" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="405" y="1080" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ZiBS2_UOFTs0pmLssh5Q-86" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ZiBS2_UOFTs0pmLssh5Q-80" target="ZiBS2_UOFTs0pmLssh5Q-79">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZiBS2_UOFTs0pmLssh5Q-80" value="PUT" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="620" y="1080" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ZiBS2_UOFTs0pmLssh5Q-81" value="DELETE BOOK" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="235" y="1200" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ZiBS2_UOFTs0pmLssh5Q-85" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ZiBS2_UOFTs0pmLssh5Q-82" target="ZiBS2_UOFTs0pmLssh5Q-81">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZiBS2_UOFTs0pmLssh5Q-82" value="/book/{bookId}/" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="410" y="1200" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ZiBS2_UOFTs0pmLssh5Q-84" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="ZiBS2_UOFTs0pmLssh5Q-83" target="ZiBS2_UOFTs0pmLssh5Q-82">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZiBS2_UOFTs0pmLssh5Q-83" value="DELETE" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="625" y="1200" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ZiBS2_UOFTs0pmLssh5Q-90" value="PROJECT STRUCTURE" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="440" y="188" width="160" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
