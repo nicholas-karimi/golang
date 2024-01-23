@@ -1,0 +1,11 @@
+
+GET localhost:8080/book/
+
+###
+POST localhost:8080/book/
+Content-Type: "application/json"
+	{
+		"name": "The Art of War",
+		"author": "Sun Tzu",
+		"publication": "China Press"
+	}
