@@ -8,6 +8,7 @@ run: build
 
 clean:
 	go clean
+
 	rm ./target/${BINARY_NAME}-linux
 
 
