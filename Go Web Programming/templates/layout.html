@@ -1,0 +1,20 @@
+{{ define "layout" }}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title> Go Template Nesting </title>
+    
+    </head>
+
+    <body>
+        {{ template "content" }}
+    </body>
+</html>
+
+{{ end }}
+
+{{ block "content" . }}
+<h1 style="color: blue;">Hello World of Template Nesting!!!</h1>
+{{ end }}

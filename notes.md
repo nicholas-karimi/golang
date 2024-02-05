@@ -445,6 +445,8 @@ Slices have built-in functions `len` and `cap` tht gets the length of the slice 
 
 ##### Panic
 **panicking** means that `runtime` ERROR that is unrecoverable.
+`panicking` refers to a situation
+where the normal flow of execution is stopped, and if it’s within a function, the function returns to its caller.
 
 #### Variadic
 a variadic function receives a variadic argument as a slice.
