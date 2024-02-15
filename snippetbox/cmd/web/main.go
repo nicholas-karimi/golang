@@ -7,9 +7,12 @@ import (
 	"os"
 
 	"github.com/nicholas-karimi/snippetbox/cmd/web/handlers"
+	"github.com/nicholas-karimi/snippetbox/config"
 )
 
 func main() {
+	// logger instance
+	logger := config.NewLogger()
 	// command line flag - default value :4000 & help  text to expalin what the flag controls
 	addr := flag.String("addr", ":4000", "HTTP network address")
 
@@ -24,6 +27,13 @@ func main() {
 	// error msg logger - use stderr as destination and log.Lshortfile flag to include relevant filebame and line number
 	errLog := log.New(os.Stderr, "ERROR\t", log.Ldate|log.Ltime|log.Lshortfile)
 
+	/* app := &application{
+		initialize new instance of app struct containing dependecies
+		errLog:  errLog,
+		infoLog: infoLog,
+	}
+	ctx := context.WithValue(context.Background(), "app", app) */
+
 	mux := http.NewServeMux()
 
 	// file server to serve files from the static directory
@@ -33,17 +43,27 @@ func main() {
 	mux.Handle("/static/", http.StripPrefix("/static", fileServer))
 
 	// other app routes
-	mux.HandleFunc("/", handlers.Home)
+	mux.HandleFunc("/", handlers.Home(logger))
 	mux.HandleFunc("/snippet/view", handlers.SnippetView)
 	mux.HandleFunc("/snippet/create", handlers.SnippetCreate)
 
-	// log.Print("Starting web server on :4000")
+	/* // log.Print("Starting web server on :4000")
 	// log.Printf("Starting server on %s", *addr)
 	infoLog.Printf("Starting server on %s", *addr)
 
 	// err := http.ListenAndServe(":4000", mux)
 	err := http.ListenAndServe(*addr, mux)
 
-	// log.Fatal(err)
+	// log.Fatal(err) */
+
+	// http.Server struct
+	srv := &http.Server{
+		Addr:     *addr,
+		ErrorLog: errLog,
+		Handler:  mux,
+	}
+	infoLog.Printf("Starting server on %s", *addr)
+	err := srv.ListenAndServe()
+
 	errLog.Fatal(err)
 }

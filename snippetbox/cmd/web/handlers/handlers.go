@@ -3,37 +3,44 @@ package handlers
 import (
 	"fmt"
 	"html/template"
-	"log"
 	"net/http"
 	"strconv"
+
+	"github.com/nicholas-karimi/snippetbox/config"
 )
 
-func Home(w http.ResponseWriter, r *http.Request) {
-	if r.URL.Path != "/" {
-		http.NotFound(w, r)
-		return
-	}
-	// w.Write([]byte("Hello from Snippetbox!"))
-	files := []string{
-		"ui/html/base.tmpl",
-		"ui/html/partials/nav.tmpl",
-		"ui/html/pages/home.tmpl",
-	}
-	// ts, err := template.ParseFiles("ui/html/pages/home.tmpl")
-	ts, err := template.ParseFiles(files...)
-	if err != nil {
-		log.Print(err.Error())
-		http.Error(w, "Internal Server Error", 500)
-		return
-	}
-	// err = ts.Execute(w, nil)
-	err = ts.ExecuteTemplate(w, "base", nil)
-	if err != nil {
-		log.Print(err.Error())
-		http.Error(w, "Internal Server Error", 500)
+func Home(app *config.Application) http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		/* dependencyn injection
+		app := r.Context() .Value("app").(*application)*/
+		if r.URL.Path != "/" {
+			http.NotFound(w, r)
+			return
+		}
+		// w.Write([]byte("Hello from Snippetbox!"))
+		files := []string{
+			"ui/html/base.tmpl",
+			"ui/html/partials/nav.tmpl",
+			"ui/html/pages/home.tmpl",
+		}
+		// ts, err := template.ParseFiles("ui/html/pages/home.tmpl")
+		ts, err := template.ParseFiles(files...)
+		if err != nil {
+			// log.Print(err.Error())
+			// http.Error(w, "Internal Server Error", 500)
+			app.LogError(err.Error())
+			http.Error(w, "Internal Server Error", 500)
+			return
+		}
+		// err = ts.Execute(w, nil)
+		err = ts.ExecuteTemplate(w, "base", nil)
+		if err != nil {
+			// log.Print(err.Error())
+			app.LogError(err.Error())
+			http.Error(w, "Internal Server Error", 500)
+		}
 	}
 }
-
 func SnippetView(w http.ResponseWriter, r *http.Request) {
 	id, err := strconv.Atoi(r.URL.Query().Get("id"))
 	if err != nil || id < 1 {
