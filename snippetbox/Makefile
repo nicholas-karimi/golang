@@ -14,3 +14,4 @@ clean:
 test:
 	go test -v ./...
 
+.PHONY: build run clean test
