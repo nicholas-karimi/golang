@@ -77,7 +77,7 @@ func (h *Handlers) SnippetCreate(w http.ResponseWriter, r *http.Request) {
 	id, err := snippetModel.Insert(title, content, time.Now(), expires)
 
 	if err != nil {
-		http.Error(w, "Internal Server Error", 500)
+		http.Error(w, "Internal Server Error", http.StatusInternalServerError) //500)
 		h.AppConfig.ErrorLog.Fatal(err.Error())
 		return
 	}
